@@ -4,9 +4,12 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "NODE_ENV=local nodemon server.js",
     "lint": "eslint --max-warnings 3 ./",
-    "test": "npm run lint && lab -c"
+    "test": "npm run lint && lab -c",
+    "migrate": "node_modules/.bin/sequelize db:migrate; node_modules/.bin/sequelize db:seed:all",
+    "migrate-local": "NODE_ENV=local npm run migrate",
+    "migrate-prod": "NODE_ENV=production npm run migrate"
   },
   "repository": {
     "type": "git",
@@ -18,6 +21,7 @@
     "babel-core": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "confidence": "^3.0.2",
+    "fs": "^0.0.1-security",
     "glue": "^4.2.0",
     "good": "^6.6.3",
     "good-console": "^5.3.2",
@@ -26,6 +30,9 @@
     "inert": "^4.2.1",
     "joi": "^10.6.0",
     "lodash": "^4.17.4",
+    "mysql2": "^1.5.3",
+    "path": "^0.12.7",
+    "sequelize": "^4.37.6",
     "vision": "^4.1.1"
   },
   "devDependencies": {

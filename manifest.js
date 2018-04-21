@@ -2,6 +2,8 @@
 
 const Confidence = require('confidence');
 const Config = require('./config');
+const Sequelize = require('./models/index.js').Sequelize;
+const sequelize = require('./models/index.js').sequelize;
 
 const criteria = {
     env: process.env.NODE_ENV
