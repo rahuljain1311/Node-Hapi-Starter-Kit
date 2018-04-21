@@ -3,8 +3,9 @@
 const Joi = require('joi');
 
 const main = {
-    id: Joi.number().integer().min(1).required(),
-    name: Joi.string().max(255).required()
+    id: Joi.number().integer().min(1).max(2).required(),
+    description: Joi.string().max(255).required(),
+    link: Joi.string().max(255).required()
 };
 
 exports.myHelloRequest = Joi.object({
@@ -13,5 +14,6 @@ exports.myHelloRequest = Joi.object({
 
 exports.myHelloResponse = Joi.object({
     id: main.id,
-    name: main.name
+    description: main.description,
+    link: main.link
 });

@@ -33,6 +33,7 @@
     "mysql2": "^1.5.3",
     "path": "^0.12.7",
     "sequelize": "^4.37.6",
+    "sequelize-cli": "^4.0.0",
     "vision": "^4.1.1"
   },
   "devDependencies": {
