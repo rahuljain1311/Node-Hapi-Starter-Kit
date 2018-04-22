@@ -19,5 +19,17 @@ module.exports = [
                 schema: HelloSchema.myHelloResponse
             }
         }
+    },
+    {
+        method: 'GET',
+        path: '/hellohi',
+        handler: ( request, reply ) => {
+
+            reply( Hello.printStatic() );
+        },
+        config: {
+            tags: ['api']
+        }
     }
+
 ];

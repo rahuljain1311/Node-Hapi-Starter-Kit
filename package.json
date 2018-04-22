@@ -7,9 +7,18 @@
     "start": "NODE_ENV=local nodemon server.js",
     "lint": "eslint --max-warnings 3 ./",
     "test": "npm run lint && lab -c",
+
     "migrate": "node_modules/.bin/sequelize db:migrate; node_modules/.bin/sequelize db:seed:all",
     "migrate-local": "NODE_ENV=local npm run migrate",
-    "migrate-prod": "NODE_ENV=production npm run migrate"
+    "migrate-prod": "NODE_ENV=production npm run migrate",
+
+    "drop": "node_modules/.bin/sequelize db:drop",
+    "drop-local": "NODE_ENV=local npm run drop",
+    "drop-prod": "NODE_ENV=production npm run drop",
+
+    "create": "node_modules/.bin/sequelize db:create",
+    "create-local": "NODE_ENV=local npm run create",
+    "create-prod": "NODE_ENV=production npm run create"
   },
   "repository": {
     "type": "git",
@@ -30,8 +39,10 @@
     "inert": "^4.2.1",
     "joi": "^10.6.0",
     "lodash": "^4.17.4",
+    "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
     "path": "^0.12.7",
+    "pg": "^7.4.1",
     "sequelize": "^4.37.6",
     "sequelize-cli": "^4.0.0",
     "vision": "^4.1.1"

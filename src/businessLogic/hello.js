@@ -11,4 +11,11 @@ async function print(id){
     return data;
 }
 
+function printStatic(){
+
+    
+    return 'Hey there!';
+}
+
 module.exports.print = print;
+module.exports.printStatic = printStatic;
