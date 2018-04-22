@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    'local': {
+    'local_postgres': {
         'username': process.env.POSTGRES_USER,
         'password': process.env.POSTGRES_PASSWORD,
         'database': process.env.POSTGRES_DB,

@@ -30,14 +30,17 @@ Docker Integration
 
 1. `docker-compose up -d`
 
-2. To drop the database run `docker-compose run app npm run drop-local` . Similarly `migrate-local` and `create-local` commands are available
+2. Any command available in package.json can be run directly. For eg. to drop the database run `docker-compose run app npm run drop-localPSQL` . Similarly `migrate-localPSQL` and `create-localPSQL`.
 
 3. To see logs of any of these containers first choose the container (app or db).   
     a. Do `docker-compose ps` to list all the containers for THIS particular project. 
     b. Choose the container name.
     c. `docker logs -ft --details --since 5m <Container_name>` . See docker logs -h for more info.
 
-
+4. Even though hot reloading will work , it be possible that you need to restart your server, or build your containers again using a different configs. Do the steps below to rebuild: 
+    a. `docker stop nodehapistarterkit_app_1 nodehapistarterkit_db_1`
+    b. `docker rm nodehapistarterkit_app_1 nodehapistarterkit_db_1`
+    c. `docker-compose up -d`
 
 
 

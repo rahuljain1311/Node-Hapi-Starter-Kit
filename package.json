@@ -4,20 +4,20 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "NODE_ENV=local nodemon server.js",
+    "start": "NODE_ENV=local_postgres nodemon server.js",
     "lint": "eslint --max-warnings 3 ./",
     "test": "npm run lint && lab -c",
 
     "migrate": "node_modules/.bin/sequelize db:migrate; node_modules/.bin/sequelize db:seed:all",
-    "migrate-local": "NODE_ENV=local npm run migrate",
+    "migrate-localPSQL": "NODE_ENV=local_postgres npm run migrate",
     "migrate-prod": "NODE_ENV=production npm run migrate",
 
     "drop": "node_modules/.bin/sequelize db:drop",
-    "drop-local": "NODE_ENV=local npm run drop",
+    "drop-localPSQL": "NODE_ENV=local_postgres npm run drop",
     "drop-prod": "NODE_ENV=production npm run drop",
 
     "create": "node_modules/.bin/sequelize db:create",
-    "create-local": "NODE_ENV=local npm run create",
+    "create-localPSQL": "NODE_ENV=local_postgres npm run create",
     "create-prod": "NODE_ENV=production npm run create"
   },
   "repository": {
