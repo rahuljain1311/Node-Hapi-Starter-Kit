@@ -28,6 +28,16 @@ And ofcourse if you want to improve, PRs are always welcome :)
 
 Docker Integration
 
+1. `docker-compose up -d`
+
+2. To drop the database run `docker-compose run app npm run drop-local` . Similarly `migrate-local` and `create-local` commands are available
+
+3. To see logs of any of these containers first choose the container (app or db).   
+    a. Do `docker-compose ps` to list all the containers for THIS particular project. 
+    b. Choose the container name.
+    c. `docker logs -ft --details --since 5m <Container_name>` . See docker logs -h for more info.
+
+
 
 
 
