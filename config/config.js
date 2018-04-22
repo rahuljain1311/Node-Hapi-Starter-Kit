@@ -9,14 +9,14 @@ module.exports = {
         'dialect': 'postgres',
         seederStorage: 'sequelize',
     },
-    // 'local': {
-    //     'username': 'root',
-    //     'password': 'password',
-    //     'database': 'article',
-    //     'host': 'localhost',
-    //     'dialect': 'postgres',
-    //     seederStorage: 'sequelize',
-    // },
+    'local_mysql': {
+        'username': process.env.MYSQL_USER,
+        'password': process.env.MYSQL_PASS,
+        'database': process.env.MYSQL_DATABASE,
+        'host': 'db',
+        'dialect': 'mysql',
+        seederStorage: 'sequelize',
+    },
     'test': {
         'username': 'root',
         'password': 'password',

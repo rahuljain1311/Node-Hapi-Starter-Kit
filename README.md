@@ -38,9 +38,8 @@ Docker Integration
     c. `docker logs -ft --details --since 5m <Container_name>` . See docker logs -h for more info.
 
 4. Even though hot reloading will work , it be possible that you need to restart your server, or build your containers again using a different configs. Do the steps below to rebuild: 
-    a. `docker stop nodehapistarterkit_app_1 nodehapistarterkit_db_1`
-    b. `docker rm nodehapistarterkit_app_1 nodehapistarterkit_db_1`
-    c. `docker-compose up -d`
+    a. `docker-compose down` Or to build again do `docker-compose up --build`
+    b. `docker-compose up -d`
 
 
 
