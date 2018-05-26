@@ -43,3 +43,10 @@ Docker Integration
 
 
 
+PostgresSQL is working fine:
+1. docker-compose up --build -d
+2. docker-compose run app npm run create-localPSQL
+3. docker-compose run app npm run migrate-localPSQL
+4. hit `http://localhost:5000/api/hello/2`
+
+
