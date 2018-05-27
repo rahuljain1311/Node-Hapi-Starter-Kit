@@ -26,7 +26,7 @@ And ofcourse if you want to improve, PRs are always welcome :)
 
 
 
-Docker Integration
+#Docker Integration
 
 1. `docker-compose up -d`
 
@@ -42,11 +42,19 @@ Docker Integration
     b. `docker-compose up -d`
 
 
-
-PostgresSQL is working fine:
+#PostgresSQL is working fine:
 1. docker-compose up --build -d
 2. docker-compose run app npm run create-localPSQL
 3. docker-compose run app npm run migrate-localPSQL
 4. hit `http://localhost:5000/api/hello/2`
 
+#MySQL is working fine:
+1. docker-compose up --build -d
+2. docker-compose run app npm run create-localMSQL
+3. docker-compose run app npm run migrate-localMSQL
+4. hit `http://localhost:5000/api/hello/2`
+
+#Corrupt mysql or postgres database [Delete docker volume]: 
+1. docker-compose down
+2. docker volume prune [Warning: This will remove all the unclaimed volumes. Please prune the specific volume of your application only!]
 

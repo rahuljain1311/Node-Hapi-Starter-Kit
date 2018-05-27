@@ -14,5 +14,5 @@ COPY . .
 
 EXPOSE 5000
 
-# CMD npm run startMSQL
-CMD npm run startPSQL
+CMD npm run startMSQL
+# CMD npm run startPSQL

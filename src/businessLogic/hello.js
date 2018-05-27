@@ -1,19 +1,19 @@
 'use strict';
 const Model = require('../../models/index');
 
-async function print(id){
+function print(id){
 
-    var data = await Model.Article.find({
+    return Model.Article.find({
         where: { id: id },
         attributes: ['id', 'link', 'description']
+    }).then((data) => {
+        data = JSON.parse(JSON.stringify(data));
+        return data;
     });
-    data = JSON.parse(JSON.stringify(data));
-    return data;
 }
 
 function printStatic(){
 
-    
     return 'Hey there!';
 }
 

@@ -11,7 +11,7 @@ module.exports = {
     },
     'local_mysql': {
         'username': process.env.MYSQL_USER,
-        'password': process.env.MYSQL_PASS,
+        'password': process.env.MYSQL_PASSWORD,
         'database': process.env.MYSQL_DATABASE,
         'host': 'db',
         'dialect': 'mysql',
