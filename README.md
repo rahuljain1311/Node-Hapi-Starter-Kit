@@ -14,19 +14,17 @@ Demo? After running the server hit the link `localhost:5000/documentation`
 
 Lint is already installed and checked. Type in `npm run lint` to prevent linting errors
 
-For validating the request parameters and the response given by the API, I am using Joi Schema (https://www.npmjs.com/package/joi)
+For validating the request parameters and the response given by the API, I am using [Joi](https://www.npmjs.com/package/joi)
 
-Dont forget hot reloading! This will make your life super easy :D (https://www.npmjs.com/package/nodemon)
+Don't forget hot reloading! This will make your life super easy :D (https://www.npmjs.com/package/nodemon)
 
-To run the test cases type `npm run test`. It uses code and lab (https://www.npmjs.com/package/code) and gives test coverage as well.
+To run the test cases type `npm run test`. It uses [code and lab](https://www.npmjs.com/package/code) and gives test coverage as well.
 
 How can I forget logging. Using good-console for colorful logs (Happy Debugging :P)
 
 And ofcourse if you want to improve, PRs are always welcome :)
 
-
-
-#Docker Integration
+## Docker Integration
 
 1. `docker-compose up -d`
 
@@ -42,19 +40,19 @@ And ofcourse if you want to improve, PRs are always welcome :)
     b. `docker-compose up -d`
 
 
-#PostgresSQL is working fine:
+## PostgresSQL is working fine:
 1. docker-compose up --build -d
 2. docker-compose run app npm run create-localPSQL
 3. docker-compose run app npm run migrate-localPSQL
 4. hit `http://localhost:5000/api/hello/2`
 
-#MySQL is working fine:
+## MySQL is working fine:
 1. docker-compose up --build -d
 2. docker-compose run app npm run create-localMSQL
 3. docker-compose run app npm run migrate-localMSQL
 4. hit `http://localhost:5000/api/hello/2`
 
-#Corrupt mysql or postgres database [Delete docker volume]: 
+## Corrupt mysql or postgres database [Delete docker volume]: 
 1. docker-compose down
 2. docker volume prune [Warning: This will remove all the unclaimed volumes. Please prune the specific volume of your application only!]
 
