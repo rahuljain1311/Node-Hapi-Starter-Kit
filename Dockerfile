@@ -12,6 +12,7 @@ RUN yarn install
 
 COPY . . 
 
-EXPOSE 3306
+EXPOSE 5000
 
-CMD npm start
+CMD npm run startMSQL
+# CMD npm run startPSQL

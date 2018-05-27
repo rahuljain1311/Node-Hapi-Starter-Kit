@@ -26,18 +26,35 @@ And ofcourse if you want to improve, PRs are always welcome :)
 
 
 
-Docker Integration
+#Docker Integration
 
 1. `docker-compose up -d`
 
-2. To drop the database run `docker-compose run app npm run drop-local` . Similarly `migrate-local` and `create-local` commands are available
+2. Any command available in package.json can be run directly. For eg. to drop the database run `docker-compose run app npm run drop-localPSQL` . Similarly `migrate-localPSQL` and `create-localPSQL`.
 
 3. To see logs of any of these containers first choose the container (app or db).   
     a. Do `docker-compose ps` to list all the containers for THIS particular project. 
     b. Choose the container name.
     c. `docker logs -ft --details --since 5m <Container_name>` . See docker logs -h for more info.
 
+4. Even though hot reloading will work , it be possible that you need to restart your server, or build your containers again using a different configs. Do the steps below to rebuild: 
+    a. `docker-compose down` Or to build again do `docker-compose up --build`
+    b. `docker-compose up -d`
 
 
+#PostgresSQL is working fine:
+1. docker-compose up --build -d
+2. docker-compose run app npm run create-localPSQL
+3. docker-compose run app npm run migrate-localPSQL
+4. hit `http://localhost:5000/api/hello/2`
 
+#MySQL is working fine:
+1. docker-compose up --build -d
+2. docker-compose run app npm run create-localMSQL
+3. docker-compose run app npm run migrate-localMSQL
+4. hit `http://localhost:5000/api/hello/2`
+
+#Corrupt mysql or postgres database [Delete docker volume]: 
+1. docker-compose down
+2. docker volume prune [Warning: This will remove all the unclaimed volumes. Please prune the specific volume of your application only!]
 

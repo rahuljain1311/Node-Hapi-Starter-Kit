@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    'local': {
+    'local_postgres': {
         'username': process.env.POSTGRES_USER,
         'password': process.env.POSTGRES_PASSWORD,
         'database': process.env.POSTGRES_DB,
@@ -9,14 +9,14 @@ module.exports = {
         'dialect': 'postgres',
         seederStorage: 'sequelize',
     },
-    // 'local': {
-    //     'username': 'root',
-    //     'password': 'password',
-    //     'database': 'article',
-    //     'host': 'localhost',
-    //     'dialect': 'postgres',
-    //     seederStorage: 'sequelize',
-    // },
+    'local_mysql': {
+        'username': process.env.MYSQL_USER,
+        'password': process.env.MYSQL_PASSWORD,
+        'database': process.env.MYSQL_DATABASE,
+        'host': 'db',
+        'dialect': 'mysql',
+        seederStorage: 'sequelize',
+    },
     'test': {
         'username': 'root',
         'password': 'password',
