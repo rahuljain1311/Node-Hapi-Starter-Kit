@@ -1,7 +1,5 @@
 FROM node:8.9.4
 
-RUN apt-get update -yqq 
-
 RUN npm install -g yarn
 
 WORKDIR /usr/src/app
