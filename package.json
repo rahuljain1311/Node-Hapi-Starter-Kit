@@ -15,11 +15,7 @@
     "drop": "node_modules/.bin/sequelize db:drop",
     "drop-localPSQL": "NODE_ENV=local_postgres npm run drop",
     "drop-localMSQL": "NODE_ENV=local_mysql npm run drop",
-    "drop-prod": "NODE_ENV=production npm run drop",
-    "create": "node_modules/.bin/sequelize db:create",
-    "create-localPSQL": "NODE_ENV=local_postgres npm run create",
-    "create-localMSQL": "NODE_ENV=local_mysql npm run create",
-    "create-prod": "NODE_ENV=production npm run create"
+    "drop-prod": "NODE_ENV=production npm run drop"
   },
   "repository": {
     "type": "git",
