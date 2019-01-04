@@ -1,28 +1,33 @@
 version: "2"
 
 volumes: 
-  db-data-postgres: 
-    external: false
 
-  # db-data-mysql: 
+  # db-data-postgres: 
   #   external: false
+
+  db-data-mysql: 
+    external: false
 
 services: 
   db: 
-    image: postgres
-    env_file: .env_postgres
-    volumes: 
-      - db-data-postgres:/var/lib/postgresql/db-data
 
-    # image: mysql:5.7
-    # env_file: .env_mysql
+    # image: postgres
+    # env_file: .env_postgres
     # volumes: 
-    #   - db-data-mysql:/var/lib/mysql
+    #   - db-data-postgres:/var/lib/postgresql/db-data
+
+    image: mysql:5.7
+    env_file: .env_mysql
+    volumes: 
+      - db-data-mysql:/var/lib/mysql
 
   app: 
     build: .
-    env_file: .env_postgres
-    # env_file: .env_mysql
+
+    # env_file: .env_postgres
+
+    env_file: .env_mysql
+
     volumes: 
       - .:/usr/src/app
     ports:
