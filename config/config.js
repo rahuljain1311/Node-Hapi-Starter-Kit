@@ -8,6 +8,7 @@ module.exports = {
         'host': 'db',
         'dialect': 'postgres',
         seederStorage: 'sequelize',
+        operatorsAliases: false
     },
     'local_mysql': {
         'username': 'root',
@@ -16,6 +17,7 @@ module.exports = {
         'host': 'db',
         'dialect': 'mysql',
         seederStorage: 'sequelize',
+        operatorsAliases: false
     },
     'test': {
         'username': 'root',
@@ -24,6 +26,7 @@ module.exports = {
         'host': '127.0.0.1',
         'dialect': 'mysql',
         seederStorage: 'sequelize',
+        operatorsAliases: false
     },
     'production': {
         'username': 'root',
@@ -32,5 +35,6 @@ module.exports = {
         'host': '127.0.0.1',
         'dialect': 'postgres',
         seederStorage: 'sequelize',
+        operatorsAliases: false
     }
 };
