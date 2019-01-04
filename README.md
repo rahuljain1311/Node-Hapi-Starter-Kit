@@ -7,7 +7,7 @@ Just do `npm install` to start up.
 To start the server do `npm start`
 (This will start the server at port 5000).
 
-You can now hit the test API at localhost:5000/api/hello
+You can now hit the test API at localhost:5000/api/hello/2
 
 It comes with a Hapi-Swagger (https://github.com/glennjones/hapi-swagger) package for API Documentation. 
 Demo? After running the server hit the link `localhost:5000/documentation`
@@ -22,7 +22,7 @@ To run the test cases type `npm run test`. It uses [code and lab](https://www.np
 
 How can I forget logging. Using good-console for colorful logs (Happy Debugging :P)
 
-And ofcourse if you want to improve, PRs are always welcome :)
+And ofcourse, if you want to improve, PRs are always welcome :)
 
 ## Docker Integration
 
