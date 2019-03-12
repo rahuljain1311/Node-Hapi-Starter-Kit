@@ -7,6 +7,7 @@ const basename  = path.basename(module.filename);
 const env       = process.env.NODE_ENV || 'local_postgres';
 let config    = require(__dirname + '/../config/config.js')[env];
 const db        = {};
+const AWS = require('aws-sdk');
 
 var sequelize;
 if (config.use_env_variable) {
@@ -47,19 +48,26 @@ Object.keys(db).forEach((modelName) => {
 //         }
 //     });
 
-
-let reInitializeDBConn = function () {
-
+async function reInitializeDBConn () {
     console.log('Inside reInitializeDBConn.. yay')
-    setTimeout(function () {
-        sequelize.beforeConnect((config) => {
-            console.log('current password = ', config.password);
-            config.password = 'password';
-            console.log('new password = ', config.password);
-            return config;
+    sequelize.beforeConnect((config) => {
+
+      const token = await getToken(config);
+      console.log("token = ", token)
+      config.password = token;
+      return config;
+    });
+  };
+
+// Get the token from the auth chain
+function getToken(config) {
+    return new Promise(resolve => {
+        let signer = new AWS.RDS.Signer(config);
+        signer.getAuthToken({}, (err, token) => {
+            resolve(token);
         });
-    }, 2000);
-};
+    })
+}
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

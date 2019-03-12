@@ -1,14 +1,21 @@
 'use strict';
+const fs        = require('fs');
 
 module.exports = {
     'local_postgres': {
-        'username': process.env.POSTGRES_USER,
-        'password': process.env.POSTGRES_PASSWORD,
-        'database': process.env.POSTGRES_DB,
-        'host': 'db',
+        'username': 'jain',
+        'password': '',
+        'database': 'jain',
+        'host': 'rahul-postgres-read-write-instance.cfnjovscczju.us-west-2.rds.amazonaws.com',
         'dialect': 'postgres',
+        region: 'us-west-2',
         seederStorage: 'sequelize',
-        operatorsAliases: false
+        operatorsAliases: false,
+        dialectOptions: {
+            ssl: {
+                ca: fs.readFileSync("/Users/rahul_jain/Downloads/rds-combined-ca-bundle.pem")
+            }
+        }
     },
     'local_mysql': {
         'username': 'root',
