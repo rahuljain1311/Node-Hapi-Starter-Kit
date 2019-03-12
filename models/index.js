@@ -5,7 +5,7 @@ const path      = require('path');
 const Sequelize = require('sequelize');
 const basename  = path.basename(module.filename);
 const env       = process.env.NODE_ENV || 'local_postgres';
-const config    = require(__dirname + '/../config/config.js')[env];
+let config    = require(__dirname + '/../config/config.js')[env];
 const db        = {};
 
 var sequelize;
@@ -31,16 +31,38 @@ Object.keys(db).forEach((modelName) => {
     }
 });
 
-sequelize
-    .authenticate()
-    .then(() => {
-        console.log('Connection has been established successfully.');
-    })
-    .catch((err) => {
-        console.log('Unable to connect to the database:', err);
-    });
+// sequelize
+//     .authenticate()
+//     .then(() => {
+//         console.log('Connection has been established successfully.');
+//     })
+//     .catch((err) => {
+//         console.log("RJRJRJRJRJ");
+//         if(err.name === 'SequelizeConnectionRefusedError' || err.name === 'SequelizeConnectionError' || err.name === 'SequelizeAccessDeniedError') {
+
+//             return reInitializeDBConn();
+//         }
+//         else {
+//             console.log('Unable to connect to the database:', JSON.stringify(err));
+//         }
+//     });
+
+
+let reInitializeDBConn = function () {
+
+    console.log('Inside reInitializeDBConn.. yay')
+    setTimeout(function () {
+        sequelize.beforeConnect((config) => {
+            console.log('current password = ', config.password);
+            config.password = 'password';
+            console.log('new password = ', config.password);
+            return config;
+        });
+    }, 2000);
+};
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+db.reInitializeDBConn = reInitializeDBConn;
 
 module.exports = db;

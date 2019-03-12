@@ -11,10 +11,10 @@ module.exports = {
         operatorsAliases: false
     },
     'local_mysql': {
-        'username': process.env.MYSQL_USER,
-        'password': process.env.MYSQL_PASSWORD,
-        'database': process.env.MYSQL_DATABASE,
-        'host': 'db',
+        'username': 'root',
+        'password': 'rjp',
+        'database': 'rj',
+        'host': '127.0.0.1',
         'dialect': 'mysql',
         seederStorage: 'sequelize',
         operatorsAliases: false
@@ -31,7 +31,7 @@ module.exports = {
     'production': {
         'username': 'root',
         'password': 'password',
-        'database': 'article',
+        'database': 'rj',
         'host': '127.0.0.1',
         'dialect': 'postgres',
         seederStorage: 'sequelize',
