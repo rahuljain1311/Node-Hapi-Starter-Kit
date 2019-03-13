@@ -32,42 +32,51 @@ Object.keys(db).forEach((modelName) => {
     }
 });
 
-// sequelize
-//     .authenticate()
-//     .then(() => {
-//         console.log('Connection has been established successfully.');
-//     })
-//     .catch((err) => {
-//         console.log("RJRJRJRJRJ");
-//         if(err.name === 'SequelizeConnectionRefusedError' || err.name === 'SequelizeConnectionError' || err.name === 'SequelizeAccessDeniedError') {
-
-//             return reInitializeDBConn();
-//         }
-//         else {
-//             console.log('Unable to connect to the database:', JSON.stringify(err));
-//         }
-//     });
-
-async function reInitializeDBConn () {
-    console.log('Inside reInitializeDBConn.. yay')
-    sequelize.beforeConnect((config) => {
-
-      const token = await getToken(config);
-      console.log("token = ", token)
-      config.password = token;
-      return config;
+sequelize
+    .authenticate()
+    .then(() => {
+        console.log('Connection has been established successfully.');
+    })
+    .catch((err) => {
+        console.log("RJRJRJRJRJ");
+        if(
+            err.name === 'SequelizeConnectionRefusedError' || 
+            err.name === 'SequelizeConnectionError' || 
+            err.name === 'SequelizeAccessDeniedError' ||
+            err.name === 'SequelizeConnectionTimedOutError' ||
+            err.name === 'SequelizeInvalidConnectionError' ||
+            err.name === 'SequelizeHostNotReachableError' ||
+            err.name === 'SequelizeHostNotFoundError'
+        ) {
+            return reInitializeDBConn();
+        }
+        else {
+            console.log('Unable to connect to the database:', JSON.stringify(err));
+        }
     });
-  };
 
 // Get the token from the auth chain
 function getToken(config) {
     return new Promise(resolve => {
         let signer = new AWS.RDS.Signer(config);
+        console.log('Inside log1.. yay', signer)
         signer.getAuthToken({}, (err, token) => {
             resolve(token);
         });
     })
 }
+
+async function reInitializeDBConn () {
+    console.log('Inside reInitializeDBConn.. yay')
+    const token = await getToken(config);
+    console.log("token = ", token)
+    sequelize.beforeConnect((config, token) => {
+
+      console.log("token = ", token)
+      config.password = token;
+      return config;
+    });
+  };
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

@@ -7,8 +7,12 @@ module.exports = {
         'password': '',
         'database': 'jain',
         'host': 'rahul-postgres-read-write-instance.cfnjovscczju.us-west-2.rds.amazonaws.com',
-        'dialect': 'postgres',
+
+        hostname: 'rahul-postgres-read-write-instance.cfnjovscczju.us-west-2.rds.amazonaws.com',
         region: 'us-west-2',
+        port: 5432,
+
+        'dialect': 'postgres',
         seederStorage: 'sequelize',
         operatorsAliases: false,
         dialectOptions: {
